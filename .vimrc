@@ -171,9 +171,16 @@ endif
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
     set t_Co=256
   endif
+
 " map CTRL-E to end-of-line
 imap <C-e> <esc>$i<right>
 map <C-e> $
 " map CTRL-A to beginning-of-line
 imap <C-a> <esc>0i
 map <C-a> 0
+
+" ctags mappings
+set tags=./tags;$HOME
+set completeopt-=preview
+map <C-f> <C-]>
+map <C-w><C-f> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
